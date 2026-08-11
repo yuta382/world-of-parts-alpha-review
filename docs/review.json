@@ -8,9 +8,9 @@
       "note": "Codexのローカル環境とHTTP取得で確認済み"
     },
     "level_2": {
-      "status": "pending_publication",
-      "label": "公開更新待ち",
-      "note": "このReview Setを公開ミラーへ反映後、外部HTTPで確認する"
+      "status": "confirmed",
+      "label": "公開確認済み",
+      "note": "認証なしの公開URLから、このReview SetのHTML・JSON・代表画像を外部HTTPで取得済み"
     },
     "level_3": {
       "status": "needs_current_chatgpt_review",
@@ -20,8 +20,8 @@
   },
   "build": {
     "branch": "agent/alpha-01-diorama-foundation",
-    "commit_sha": "fb43f1973a4bc6813b809d1c3133b6ddc656291d",
-    "built_at_utc": "2026-08-11T03:46:53Z",
+    "commit_sha": "b8517f580425374f48234198eb8d16f2d18f02a7",
+    "built_at_utc": "2026-08-11T03:48:28Z",
     "engine": "Godot 4.7.1 Standard / GDScript / Compatibility renderer"
   },
   "guardian": {
