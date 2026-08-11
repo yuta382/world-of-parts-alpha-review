@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "review_state": {
+    "level_1": {
+      "status": "confirmed",
+      "label": "Codex確認済み",
+      "note": "Codexのローカル環境とHTTP取得で確認済み"
+    },
+    "level_2": {
+      "status": "confirmed",
+      "label": "公開確認済み",
+      "note": "認証なしの公開URLを外部HTTPから取得できることを確認済み"
+    },
+    "level_3": {
+      "status": "needs_current_chatgpt_review",
+      "label": "このチャット確認",
+      "note": "現在のChatGPTで要確認。Codexは合否を判定しない"
+    }
+  },
+  "build": {
+    "branch": "agent/alpha-01-diorama-foundation",
+    "commit_sha": "0e163359ccd8ed5f456f6e12ed4ab90fb4e771ea",
+    "built_at_utc": "2026-08-11T01:20:56Z",
+    "engine": "Godot 4.7.1 Standard / GDScript / Compatibility renderer"
+  },
+  "changes": [
+    "明るい水・緑・町・工場がつながる3Dジオラマを構築",
+    "工場建設後から給水ポンプ用回転軸の受注へ接続",
+    "高速加工・精密加工・検査から最大2工程を選ぶ画面を追加"
+  ],
+  "implemented_features": [
+    "スマートフォン縦画面向け3Dジオラマ",
+    "候補地の選択と最初の工場建設",
+    "ドラッグによるカメラ移動",
+    "ピンチまたはホイールによるズーム",
+    "建設後の次需要である回転軸の表示",
+    "給水ポンプ用回転軸の受注表示",
+    "3工程から最大2工程を選び順番を確認する操作",
+    "加工直前の準備状態"
+  ],
+  "unimplemented_features": [
+    "一本指加工",
+    "部品完成",
+    "ポンプ稼働と世界変化",
+    "経済と保存",
+    "オンライン機能",
+    "正式アートと音",
+    "正式なゲームループ"
+  ],
+  "known_issues": [
+    "初回起動ではGodot Webデータの読み込み時間が発生する",
+    "現在は工程選択までで、一本指加工以降のゲームループは未実装"
+  ],
+  "verification": {
+    "pc_web": {
+      "status": "passed",
+      "details": "Godot Web版の起動、3Dジオラマ、候補地選択、工場建設、回転軸受注、工程選択、カメラ移動とズームを確認"
+    },
+    "mobile_390x844": {
+      "status": "passed",
+      "details": "390×844相当で画面遷移、主要操作、表示崩れがないことを確認"
+    }
+  },
+  "screenshots": [
+    {
+      "id": "01-world-overview",
+      "path": "screenshots/world-initial.png",
+      "state": "初期の3Dジオラマ"
+    },
+    {
+      "id": "02-factory-built",
+      "path": "screenshots/factory-built.png",
+      "state": "工場建設後"
+    },
+    {
+      "id": "03-order",
+      "path": "screenshots/shaft-order.png",
+      "state": "給水ポンプ用回転軸の受注"
+    },
+    {
+      "id": "04-process-selection",
+      "path": "screenshots/process-selection.png",
+      "state": "最大2工程の選択"
+    }
+  ]
+}
