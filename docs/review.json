@@ -1,5 +1,6 @@
 {
   "schema_version": 1,
+  "review_set_id": "alpha-rs-0003-long-horizon-foundation",
   "review_state": {
     "level_1": {
       "status": "confirmed",
@@ -7,9 +8,9 @@
       "note": "Codexのローカル環境とHTTP取得で確認済み"
     },
     "level_2": {
-      "status": "confirmed",
-      "label": "公開確認済み",
-      "note": "認証なしの公開URLを外部HTTPから取得できることを確認済み"
+      "status": "pending_publication",
+      "label": "公開更新待ち",
+      "note": "このReview Setを公開ミラーへ反映後、外部HTTPで確認する"
     },
     "level_3": {
       "status": "needs_current_chatgpt_review",
@@ -19,14 +20,21 @@
   },
   "build": {
     "branch": "agent/alpha-01-diorama-foundation",
-    "commit_sha": "0e163359ccd8ed5f456f6e12ed4ab90fb4e771ea",
-    "built_at_utc": "2026-08-11T01:20:56Z",
+    "commit_sha": "fb43f1973a4bc6813b809d1c3133b6ddc656291d",
+    "built_at_utc": "2026-08-11T03:46:53Z",
     "engine": "Godot 4.7.1 Standard / GDScript / Compatibility renderer"
   },
+  "guardian": {
+    "status": "GREEN",
+    "summary": "実行時データをWater Chainへ限定し、意味検証と安全なセーブ復旧・互換停止境界が成立した",
+    "required_action": "横展開せず、一本指加工、Part Batch、同じbatch IDによる給水ポンプ供給を実装する"
+  },
   "changes": [
-    "明るい水・緑・町・工場がつながる3Dジオラマを構築",
-    "工場建設後から給水ポンプ用回転軸の受注へ接続",
-    "高速加工・精密加工・検査から最大2工程を選ぶ画面を追加"
+    "累積24時間以上を固定クエストではなく部品から新需要へ戻る循環として設計",
+    "Game Director AgentとGREEN・YELLOW・REDのGuardian判定を追加",
+    "Water Chainだけの工程・回転軸・給水ポンプ・水不足・農業・街変化を名前空間付きIDで接続するcontent_v1を追加",
+    "schema version 1、正常バックアップ復旧、既知version 0移行、未知schema・content version・コンテンツID拒否を持つオフラインセーブ基盤を追加",
+    "工程は高速加工か精密加工を一つ選び、検査を任意追加する役割分担へ整理し、実ビルドの工程選択画像を更新"
   ],
   "implemented_features": [
     "スマートフォン縦画面向け3Dジオラマ",
@@ -35,21 +43,25 @@
     "ピンチまたはホイールによるズーム",
     "建設後の次需要である回転軸の表示",
     "給水ポンプ用回転軸の受注表示",
-    "3工程から最大2工程を選び順番を確認する操作",
-    "加工直前の準備状態"
+    "高速加工または精密加工を一つ選び、検査を必要なら追加する操作",
+    "加工直前の準備状態",
+    "Water Chainに限定したコンテンツID、受注・部品・機械・品質軸の自動検証",
+    "工場建設と工程選択のversion付きオフライン保存、正常バックアップからの復旧"
   ],
   "unimplemented_features": [
     "一本指加工",
     "部品完成",
     "ポンプ稼働と世界変化",
-    "経済と保存",
+    "経済",
     "オンライン機能",
     "正式アートと音",
     "正式なゲームループ"
   ],
   "known_issues": [
     "初回起動ではGodot Webデータの読み込み時間が発生する",
-    "現在は工程選択までで、一本指加工以降のゲームループは未実装"
+    "現在は工程選択までで、一本指加工以降のゲームループは未実装",
+    "Webブラウザでの長期保存、容量上限、保存不能時の実機確認は未完了",
+    "unlocked_ids、equipment_ids、growth_stageは固定初期値で、変更機能を導入する前に参照検証または削除が必要"
   ],
   "verification": {
     "pc_web": {
@@ -58,7 +70,19 @@
     },
     "mobile_390x844": {
       "status": "passed",
-      "details": "390×844相当で画面遷移、主要操作、表示崩れがないことを確認"
+      "details": "実際のGodot Web版を390×844で起動し、候補地選択、工場建設、受注、加工方法と任意検査の選択、表示崩れがないことを確認"
+    },
+    "web_save_reload": {
+      "status": "passed",
+      "details": "工場建設と精密加工＋検査を保存後、ページ再読込で工場と工程選択が復帰することを確認"
+    },
+    "foundation_tests": {
+      "status": "passed",
+      "details": "Water Chain限定と参照・意味整合、セーブ往復、primary消失・構造破損からのbackup復旧、未来schema・content version不一致時の巻戻し禁止、既知version 0移行、未知形状・コンテンツID拒否、工程選択UIをGodot headlessで確認"
+    },
+    "godot_import": {
+      "status": "passed",
+      "details": "Godot 4.7.1 headless importでスクリプト解析エラーなし"
     }
   },
   "screenshots": [
@@ -80,7 +104,7 @@
     {
       "id": "04-process-selection",
       "path": "screenshots/process-selection.png",
-      "state": "最大2工程の選択"
+      "state": "加工方法と任意検査の選択"
     }
   ]
 }

@@ -11,7 +11,7 @@
   <header class="hero">
     <p class="eyebrow">World of Parts · Production Alpha</p>
     <h1>開発レビュー</h1>
-    <p class="lead">「世界 → 工場 → 回転軸」の入口を作っている本番α版です。現在は、最初の工場を建て、給水ポンプ用の回転軸を受注し、最大2工程を選んで加工へ進む直前まで実装しています。</p>
+    <p class="lead">「世界 → 工場 → 回転軸」の入口を作っている本番α版です。現在は、最初の工場を建て、給水ポンプ用の回転軸を受注し、加工方法と任意検査を選んで加工へ進む直前まで実装しています。</p>
     <a class="play-link" href="https://world-of-parts-alpha.pages.dev/">Godot本体を開く</a>
   </header>
 
@@ -27,8 +27,8 @@
           <p>ローカル実行、Webビルド、レビュー成果物をCodex環境で確認済みです。</p>
         </article>
         <article>
-          <h3>Level 2 · 公開確認済み</h3>
-          <p>認証なしの公開HTML、JSON、代表画像を外部HTTPから取得できる状態です。</p>
+          <h3>Level 2 · 公開更新待ち</h3>
+          <p>このReview Setを公開ミラーへ反映後、外部HTTPで確認します。</p>
         </article>
         <article>
           <h3>Level 3 · このチャット確認</h3>
@@ -62,7 +62,7 @@
         </figure>
         <figure>
           <img src="https://raw.githubusercontent.com/yuta382/world-of-parts-alpha-review/main/docs/screenshots/process-selection.png" alt="高速加工、精密加工、検査から精密加工と検査を選び、順番を確認する画面">
-          <figcaption><strong>工程選択</strong><span>役割の異なる3工程から最大2つを選び、順番を確認する。</span></figcaption>
+          <figcaption><strong>工程選択</strong><span>高速または精密を一つ選び、検査を必要なら追加する。</span></figcaption>
         </figure>
       </div>
     </section>
@@ -77,8 +77,10 @@
           <li>ピンチ／ホイールによるズーム</li>
           <li>建設後の次需要「回転軸」の表示</li>
           <li>給水ポンプ用回転軸の受注表示</li>
-          <li>高速加工・精密加工・検査から最大2工程を選択</li>
-          <li>工程順の確認と加工直前の準備状態</li>
+          <li>高速加工または精密加工を一つ選び、検査を必要なら追加</li>
+          <li>加工方法→任意検査の順序確認と加工直前の準備状態</li>
+          <li>名前空間付きIDによる部品・機械・産業・街のコンテンツ参照</li>
+          <li>バックアップと移行を持つversion付きオフラインセーブ</li>
         </ul>
       </article>
       <article>
@@ -100,14 +102,14 @@
           <dt>ピンチ／ホイール</dt><dd>拡大・縮小する</dd>
           <dt>建設ボタン</dt><dd>最初の工場を建てる</dd>
           <dt>受注を見る</dt><dd>回転軸の用途と要求を確認する</dd>
-          <dt>工程カード</dt><dd>最大2工程を選び、選択順を確認する</dd>
+          <dt>工程カード</dt><dd>加工方法を一つ選び、検査を必要なら追加する</dd>
         </dl>
       </article>
       <article>
         <h2>未実装</h2>
         <ul>
           <li>一本指加工、部品完成、ポンプ、世界変化</li>
-          <li>経済、保存、オンライン機能</li>
+          <li>経済、オンライン機能</li>
           <li>正式アート、音、正式なゲームループ</li>
         </ul>
       </article>
@@ -121,7 +123,7 @@
       <div class="notes-columns">
         <div>
           <h3>今回追加したもの</h3>
-          <p>参考画像の明るい水・緑・町・工場のつながりをプリミティブで再構成し、工場建設後から回転軸の受注、工程選択、加工準備までをGodot本体へつなぎました。</p>
+          <p>累積24時間以上の循環、Game Director監査、Water Chainだけの安定ID、正常バックアップから復旧できるversion付きオフラインセーブを本番基盤へ追加しました。工程は高速加工か精密加工を一つ選び、検査を必要なら追加する役割分担に整理しています。</p>
         </div>
         <div>
           <h3>既知の問題</h3>
@@ -129,6 +131,7 @@
             <li>初回起動ではGodot Webデータの読み込み時間が発生する。</li>
             <li>現在は工程選択までで、一本指加工以降のゲームループは未実装。</li>
             <li>レビュー画像は機能変更時に更新する必要がある。</li>
+            <li>Webブラウザでの保存・再読込は確認済み。長期保存、容量上限、保存不能時の実機確認は未完了。</li>
           </ul>
         </div>
       </div>
@@ -140,9 +143,11 @@
         <h2 id="build-title">公開中のビルド</h2>
       </div>
       <dl>
+        <dt>Review Set</dt><dd><code>alpha-rs-0003-long-horizon-foundation</code></dd>
+        <dt>Guardian</dt><dd><strong>GREEN</strong> · 横展開せず、一本指加工からWater Chainを縦に実装する</dd>
         <dt>ブランチ</dt><dd><code>agent/alpha-01-diorama-foundation</code></dd>
-        <dt>コミット</dt><dd><code>0e163359ccd8ed5f456f6e12ed4ab90fb4e771ea</code></dd>
-        <dt>最終更新</dt><dd><time datetime="2026-08-11T01:20:56Z">2026-08-11T01:20:56Z</time></dd>
+        <dt>コミット</dt><dd><code>fb43f1973a4bc6813b809d1c3133b6ddc656291d</code></dd>
+        <dt>最終更新</dt><dd><time datetime="2026-08-11T03:46:53Z">2026-08-11T03:46:53Z</time></dd>
         <dt>エンジン</dt><dd>Godot 4.7.1 Standard / GDScript / Compatibility renderer</dd>
       </dl>
     </section>
