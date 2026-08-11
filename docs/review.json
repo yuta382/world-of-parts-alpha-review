@@ -1,110 +1,112 @@
 {
   "schema_version": 1,
-  "review_set_id": "alpha-rs-0003-long-horizon-foundation",
+  "review_set_id": "alpha-rs-0004-systemic-production-loop",
   "review_state": {
     "level_1": {
       "status": "confirmed",
       "label": "Codex確認済み",
-      "note": "Codexのローカル環境とHTTP取得で確認済み"
+      "note": "Godot 4.7.1の自動検証、PCブラウザ、390×844ブラウザ、実Webビルドを確認済み"
     },
     "level_2": {
-      "status": "confirmed",
-      "label": "公開確認済み",
-      "note": "認証なしの公開URLから、このReview SetのHTML・JSON・代表画像を外部HTTPで取得済み"
+      "status": "pending_republish",
+      "label": "公開反映待ち",
+      "note": "Draft PRへのpushとCloudflare Pages反映後に、認証なしHTTP取得を再確認する"
     },
     "level_3": {
       "status": "needs_current_chatgpt_review",
       "label": "このチャット確認",
-      "note": "現在のChatGPTで要確認。Codexは合否を判定しない"
+      "note": "現在のChatGPTで要確認。CodexはLevel 3の合否を判定しない"
     }
   },
   "build": {
     "branch": "agent/alpha-01-diorama-foundation",
-    "commit_sha": "b8517f580425374f48234198eb8d16f2d18f02a7",
-    "built_at_utc": "2026-08-11T03:48:28Z",
-    "engine": "Godot 4.7.1 Standard / GDScript / Compatibility renderer"
+    "commit_sha": "ab448a259709933bd42a6992b7151dba51f25230",
+    "built_at_utc": "2026-08-11T07:58:11Z",
+    "engine": "Godot 4.7.1 Standard / GDScript / Compatibility renderer",
+    "target": "PC / mobile portrait / Web"
   },
   "guardian": {
-    "status": "GREEN",
-    "summary": "実行時データをWater Chainへ限定し、意味検証と安全なセーブ復旧・互換停止境界が成立した",
-    "required_action": "横展開せず、一本指加工、Part Batch、同じbatch IDによる給水ポンプ供給を実装する"
+    "status": "YELLOW",
+    "summary": "Game Director最終再監査で残P0なし。技術基盤と24時間循環仮説は公開・プレイテストへ進める状態",
+    "required_action": "完成ゲームGREENには、人間による初見理解、複数実機、複数セッション、累積6時間・24時間級の自発的再開の証拠が必要"
   },
   "changes": [
-    "累積24時間以上を固定クエストではなく部品から新需要へ戻る循環として設計",
-    "Game Director AgentとGREEN・YELLOW・REDのGuardian判定を追加",
-    "Water Chainだけの工程・回転軸・給水ポンプ・水不足・農業・街変化を名前空間付きIDで接続するcontent_v1を追加",
-    "schema version 1、正常バックアップ復旧、既知version 0移行、未知schema・content version・コンテンツID拒否を持つオフラインセーブ基盤を追加",
-    "工程は高速加工か精密加工を一つ選び、検査を任意追加する役割分担へ整理し、実ビルドの工程選択画像を更新"
+    "5部品ごとに異なる一本指加工軸を実装し、axis_scoreを完成品質へ強く接続",
+    "品質・数量・納期・信頼性・省資源を組み合わせる継続需要とfulfillmentを実装",
+    "工程効果をコンテンツデータへ一本化し、高速・精密・検査の役割を結果へ接続",
+    "同一batchを部品から5機械・5産業・世界指標まで追跡し、出力差を機械挙動へ反映",
+    "5段階の工場成長、設備所有と稼働枠、材料在庫・購入、自動化レシピを実装",
+    "待ち時間による解放を廃止し、納品・習熟・産業発展による継続循環へ変更",
+    "save schema v2の深い検証、2世代バックアップ、移行、300サイクルsoakを追加",
+    "稼働中の5機械が参照するbatchを履歴整理から保護し、偏った長期生産後もprovenanceを維持",
+    "レビューシナリオを実セーブから分離し、390×844の長い作業画面を縦スクロール対応"
   ],
   "implemented_features": [
-    "スマートフォン縦画面向け3Dジオラマ",
-    "候補地の選択と最初の工場建設",
-    "ドラッグによるカメラ移動",
-    "ピンチまたはホイールによるズーム",
-    "建設後の次需要である回転軸の表示",
-    "給水ポンプ用回転軸の受注表示",
-    "高速加工または精密加工を一つ選び、検査を必要なら追加する操作",
-    "加工直前の準備状態",
-    "Water Chainに限定したコンテンツID、受注・部品・機械・品質軸の自動検証",
-    "工場建設と工程選択のversion付きオフライン保存、正常バックアップからの復旧"
+    "スマートフォン縦画面向け3Dジオラマとカメラ移動・ズーム",
+    "世界需要から受注を選び、高速加工または精密加工と任意検査を組む工程判断",
+    "回転軸・軸受・歯車・バルブ・精密部品の異なる一本指加工",
+    "プレイヤー自身が仕上げ、品質・数量・納期・信頼性・省資源との一致を見る結果画面",
+    "給水ポンプ・搬送コンベア・風力発電機・浄水設備・医療スキャナーへの納品",
+    "農業・物流・エネルギー・環境・医療と分岐する町の成長",
+    "小さな工房から自ら整う工場までの5段階成長と設備の稼働枠選択",
+    "受注支給材、余剰生産用在庫、材料購入、設備投資、設備摩耗",
+    "納品済み手作業からのみ覚える部品別の自動化レシピ",
+    "オフラインセーブ、手動保存、自動保存、2世代バックアップ、v0/v1移行",
+    "固定クエストや強制待機に依存しない継続需要生成"
   ],
   "unimplemented_features": [
-    "一本指加工",
-    "部品完成",
-    "ポンプ稼働と世界変化",
-    "経済",
-    "オンライン機能",
-    "正式アートと音",
-    "正式なゲームループ"
+    "正式アート、音、振動",
+    "オンライン機能、アカウント、分析、広告、課金",
+    "5部品・5産業を越える追加コンテンツ",
+    "子ども5名・大人3名と累積24時間級の正式プレイテスト"
   ],
   "known_issues": [
-    "初回起動ではGodot Webデータの読み込み時間が発生する",
-    "現在は工程選択までで、一本指加工以降のゲームループは未実装",
-    "Webブラウザでの長期保存、容量上限、保存不能時の実機確認は未完了",
-    "unlocked_ids、equipment_ids、growth_stageは固定初期値で、変更機能を導入する前に参照検証または削除が必要"
+    "Godot Web版は初回読み込みに端末と回線依存の待ち時間がある",
+    "完成ゲームGREENに必要な人間の24時間級継続証拠は未取得",
+    "Level 3は現在のChatGPTによるreview.jsonと画像の実物確認が必要",
+    "390×844のブラウザ確認は合格したが、複数の実スマートフォン機種での長時間発熱・電池・保存検証は未完了"
   ],
   "verification": {
+    "foundation_and_game_systems": {
+      "status": "passed",
+      "details": "5部品axis fixture、A/B/C受注fit、材料制約、解放の時間非依存、300実サイクル、25サイクルごとのsave/reload、偏った110生産後の5機械provenance、バックアップ・移行・不正データ停止を確認"
+    },
+    "production_ui_flow": {
+      "status": "passed",
+      "details": "5機械の停止・低出力・高出力、batch provenance、未知ID拒否、受注から世界結果までのUIフローを確認"
+    },
     "pc_web": {
       "status": "passed",
-      "details": "Godot Web版の起動、3Dジオラマ、候補地選択、工場建設、回転軸受注、工程選択、カメラ移動とズームを確認"
+      "details": "実Godot Web版の起動、3D世界、カメラドラッグ、ホイールズーム、長期世界を確認。JavaScript/Godot error 0"
     },
     "mobile_390x844": {
       "status": "passed",
-      "details": "実際のGodot Web版を390×844で起動し、候補地選択、工場建設、受注、加工方法と任意検査の選択、表示崩れがないことを確認"
+      "details": "初期世界、複数受注、工程、5部品加工、結果、機械・世界接続、工場成長を確認。長い工場画面は縦スクロール可能。JavaScript/Godot error 0"
     },
-    "web_save_reload": {
+    "web_build": {
       "status": "passed",
-      "details": "工場建設と精密加工＋検査を保存後、ページ再読込で工場と工程選択が復帰することを確認"
+      "details": "Godot 4.7.1からWeb exportを再生成し、外部ライブラリなしの既存公開構成へ出力"
     },
-    "foundation_tests": {
-      "status": "passed",
-      "details": "Water Chain限定と参照・意味整合、セーブ往復、primary消失・構造破損からのbackup復旧、未来schema・content version不一致時の巻戻し禁止、既知version 0移行、未知形状・コンテンツID拒否、工程選択UIをGodot headlessで確認"
-    },
-    "godot_import": {
-      "status": "passed",
-      "details": "Godot 4.7.1 headless importでスクリプト解析エラーなし"
+    "human_long_play": {
+      "status": "not_started",
+      "details": "Guardian GREEN用の複数セッション・累積6時間・累積24時間の観察は未実施"
     }
   },
   "screenshots": [
-    {
-      "id": "01-world-overview",
-      "path": "screenshots/world-initial.png",
-      "state": "初期の3Dジオラマ"
-    },
-    {
-      "id": "02-factory-built",
-      "path": "screenshots/factory-built.png",
-      "state": "工場建設後"
-    },
-    {
-      "id": "03-order",
-      "path": "screenshots/shaft-order.png",
-      "state": "給水ポンプ用回転軸の受注"
-    },
-    {
-      "id": "04-process-selection",
-      "path": "screenshots/process-selection.png",
-      "state": "加工方法と任意検査の選択"
-    }
+    {"id": "01-world-initial", "path": "screenshots/01-world-initial.png", "state": "初期の3D世界と工場候補地"},
+    {"id": "02-factory-built", "path": "screenshots/02-factory-built.png", "state": "最初の工場建設後"},
+    {"id": "03-orders-multi", "path": "screenshots/03-orders-multi.png", "state": "複数産業から届く視覚中心の受注"},
+    {"id": "04-process-selection", "path": "screenshots/04-process-selection.png", "state": "高速・精密・検査の工程選択"},
+    {"id": "05-machining-shaft", "path": "screenshots/05-machining-shaft.png", "state": "回転軸の軸方向加工"},
+    {"id": "06-machining-active", "path": "screenshots/06-machining-active.png", "state": "指加工が表面と部品固有軸へ反映された状態"},
+    {"id": "07-part-result", "path": "screenshots/07-part-result.png", "state": "工程と加工から受注fitを示す部品結果"},
+    {"id": "08-machine-running", "path": "screenshots/08-machine-running.png", "state": "同じ部品が給水ポンプと農業を動かした結果"},
+    {"id": "09-machining-bearing", "path": "screenshots/09-machining-bearing.png", "state": "軸受の円周連続性と半径ぶれ加工"},
+    {"id": "10-machining-gear", "path": "screenshots/10-machining-gear.png", "state": "歯車の歯ごとの被覆とリズム加工"},
+    {"id": "11-machining-valve", "path": "screenshots/11-machining-valve.png", "state": "バルブのシール連続性と対向バランス加工"},
+    {"id": "12-machining-precision", "path": "screenshots/12-machining-precision.png", "state": "精密部品の指定点と過加工抑制"},
+    {"id": "13-world-long-term", "path": "screenshots/13-world-long-term.png", "state": "5産業と最終工場段階が存在する長期世界"},
+    {"id": "14-world-dashboard", "path": "screenshots/14-world-dashboard.png", "state": "5機械のbatch追跡と世界指標"},
+    {"id": "15-factory-growth", "path": "screenshots/15-factory-growth.png", "state": "工場段階・設備稼働枠・自動化・材料の管理"}
   ]
 }

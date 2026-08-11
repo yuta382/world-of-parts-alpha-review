@@ -10,60 +10,54 @@
 <body>
   <header class="hero">
     <p class="eyebrow">World of Parts · Production Alpha</p>
-    <h1>開発レビュー</h1>
-    <p class="lead">「世界 → 工場 → 回転軸」の入口を作っている本番α版です。現在は、最初の工場を建て、給水ポンプ用の回転軸を受注し、加工方法と任意検査を選んで加工へ進む直前まで実装しています。</p>
+    <h1>世界は部品で動いている</h1>
+    <p class="lead">世界の需要を受け、工程を考え、一本指で部品を仕上げ、同じ部品を機械へ届ける。機械の働きが産業と町を変え、次の需要へ戻る本番α版です。</p>
     <a class="play-link" href="https://world-of-parts-alpha.pages.dev/">Godot本体を開く</a>
   </header>
 
   <main>
     <section aria-labelledby="review-levels-title">
-      <div class="section-heading">
-        <p class="step">00</p>
-        <h2 id="review-levels-title">確認状態</h2>
-      </div>
+      <div class="section-heading"><p class="step">00</p><h2 id="review-levels-title">確認状態</h2></div>
       <div class="status-grid">
-        <article>
-          <h3>Level 1 · Codex確認済み</h3>
-          <p>ローカル実行、Webビルド、レビュー成果物をCodex環境で確認済みです。</p>
-        </article>
-        <article>
-          <h3>Level 2 · 公開確認済み</h3>
-          <p>認証なしの公開URLから、このReview SetのHTML、JSON、代表画像を外部HTTPで取得済みです。</p>
-        </article>
-        <article>
-          <h3>Level 3 · このチャット確認</h3>
-          <p><strong>現在のChatGPTで要確認です。</strong> Codexはこの段階の合否を判定しません。</p>
-        </article>
-        <article>
-          <h3>機械可読データ</h3>
-          <p><a href="review.json">review.jsonを開く</a></p>
-          <p>公開URLと、JSON・画像の直接添付という2つのレビュー経路を利用できます。</p>
-        </article>
+        <article><h3>Level 1 · 確認済み</h3><p>Godot自動検証、PC、390×844、実WebビルドをCodex環境で確認済みです。</p></article>
+        <article><h3>Level 2 · 公開反映待ち</h3><p>Draft PRへpush後、認証なしHTTPSと画像の直接取得を再確認します。</p></article>
+        <article><h3>Level 3 · 要確認</h3><p><strong>現在のChatGPTで要確認です。</strong> Codexはこの段階の合否を判定しません。</p></article>
+        <article><h3>Guardian · YELLOW</h3><p>Game Director最終再監査で残P0なしです。人間による初見理解、複数実機、複数セッションと24時間級の実プレイ証拠が揃うまでは完成ゲームGREENにはしません。</p></article>
       </div>
+      <p><a href="review.json">機械可読のreview.jsonを開く</a></p>
+    </section>
+
+    <section aria-labelledby="loop-title">
+      <div class="section-heading"><p class="step">01</p><h2 id="loop-title">現在のゲームループ</h2></div>
+      <ol class="flow">
+        <li class="done">世界の不足から受注を選ぶ</li>
+        <li class="done">高速／精密と任意検査を組む</li>
+        <li class="done">部品ごとに異なる表面を一本指で加工する</li>
+        <li class="done">自分の判断で仕上げ、受注との一致を見る</li>
+        <li class="done">同じbatchを機械へ納品する</li>
+        <li class="done">機械出力が産業・世界指標・町へ波及する</li>
+        <li class="done">納品・習熟・産業発展から次需要と工場成長へ戻る</li>
+      </ol>
     </section>
 
     <section aria-labelledby="screenshots-title">
-      <div class="section-heading">
-        <p class="step">01</p>
-        <h2 id="screenshots-title">現在のゲーム画面</h2>
-      </div>
+      <div class="section-heading"><p class="step">02</p><h2 id="screenshots-title">最新Godotビルドの代表画面</h2></div>
       <div class="gallery">
-        <figure>
-          <img src="https://raw.githubusercontent.com/yuta382/world-of-parts-alpha-review/main/docs/screenshots/world-initial.png" alt="青い水と緑の土地、農地、小さな町、光る工場候補地が見える3Dジオラマ">
-          <figcaption><strong>現在の世界全体</strong><span>水、農地、町、道路、候補地が一つの地域につながる。</span></figcaption>
-        </figure>
-        <figure>
-          <img src="https://raw.githubusercontent.com/yuta382/world-of-parts-alpha-review/main/docs/screenshots/factory-built.png" alt="選択した候補地に清潔感のある最初の工場が建った画面">
-          <figcaption><strong>工場建設後</strong><span>同じ3D世界に工場が建ち、回転軸の受注へつながる。</span></figcaption>
-        </figure>
-        <figure>
-          <img src="https://raw.githubusercontent.com/yuta382/world-of-parts-alpha-review/main/docs/screenshots/shaft-order.png" alt="給水ポンプ用回転軸の形、数量、表面、納期を視覚的に示す受注画面">
-          <figcaption><strong>回転軸の受注</strong><span>部品の用途と、数量・表面・納期を図形中心で確認する。</span></figcaption>
-        </figure>
-        <figure>
-          <img src="https://raw.githubusercontent.com/yuta382/world-of-parts-alpha-review/main/docs/screenshots/process-selection.png" alt="高速加工、精密加工、検査から精密加工と検査を選び、順番を確認する画面">
-          <figcaption><strong>工程選択</strong><span>高速または精密を一つ選び、検査を必要なら追加する。</span></figcaption>
-        </figure>
+        <figure><img src="https://raw.githubusercontent.com/yuta382/world-of-parts-alpha-review/main/docs/screenshots/01-world-initial.png" alt="初期の3D世界と工場候補地"><figcaption><strong>初期世界</strong><span>水、農地、町、道路と工場候補地。</span></figcaption></figure>
+        <figure><img src="https://raw.githubusercontent.com/yuta382/world-of-parts-alpha-review/main/docs/screenshots/02-factory-built.png" alt="最初の工場建設後"><figcaption><strong>工場建設後</strong><span>同じ世界に最初の工場が建つ。</span></figcaption></figure>
+        <figure><img src="https://raw.githubusercontent.com/yuta382/world-of-parts-alpha-review/main/docs/screenshots/03-orders-multi.png" alt="複数産業の受注"><figcaption><strong>継続需要</strong><span>部品、機械、産業、制約を視覚中心で比較。</span></figcaption></figure>
+        <figure><img src="https://raw.githubusercontent.com/yuta382/world-of-parts-alpha-review/main/docs/screenshots/04-process-selection.png" alt="高速精密検査の工程選択"><figcaption><strong>工程判断</strong><span>高速または精密と、必要なら検査を選ぶ。</span></figcaption></figure>
+        <figure><img src="https://raw.githubusercontent.com/yuta382/world-of-parts-alpha-review/main/docs/screenshots/05-machining-shaft.png" alt="回転軸の加工画面"><figcaption><strong>回転軸</strong><span>軸方向の被覆と均一さを整える。</span></figcaption></figure>
+        <figure><img src="https://raw.githubusercontent.com/yuta382/world-of-parts-alpha-review/main/docs/screenshots/06-machining-active.png" alt="指加工が表面へ反映された画面"><figcaption><strong>指加工中</strong><span>触れた範囲と部品固有の整いがその場で変わる。</span></figcaption></figure>
+        <figure><img src="https://raw.githubusercontent.com/yuta382/world-of-parts-alpha-review/main/docs/screenshots/07-part-result.png" alt="部品結果と受注fit"><figcaption><strong>完成部品</strong><span>工程・加工・数量・品質・納期・信頼・材料を一画面で追う。</span></figcaption></figure>
+        <figure><img src="https://raw.githubusercontent.com/yuta382/world-of-parts-alpha-review/main/docs/screenshots/08-machine-running.png" alt="部品が給水ポンプと農業を動かした結果"><figcaption><strong>部品から世界へ</strong><span>同じ回転軸が給水ポンプ、農業、町を動かす。</span></figcaption></figure>
+        <figure><img src="https://raw.githubusercontent.com/yuta382/world-of-parts-alpha-review/main/docs/screenshots/09-machining-bearing.png" alt="軸受の加工画面"><figcaption><strong>軸受</strong><span>円周の連続性と半径ぶれを整える。</span></figcaption></figure>
+        <figure><img src="https://raw.githubusercontent.com/yuta382/world-of-parts-alpha-review/main/docs/screenshots/10-machining-gear.png" alt="歯車の加工画面"><figcaption><strong>歯車</strong><span>歯ごとの被覆と加工リズムを整える。</span></figcaption></figure>
+        <figure><img src="https://raw.githubusercontent.com/yuta382/world-of-parts-alpha-review/main/docs/screenshots/11-machining-valve.png" alt="バルブの加工画面"><figcaption><strong>バルブ</strong><span>シール周の連続性と対向バランスを整える。</span></figcaption></figure>
+        <figure><img src="https://raw.githubusercontent.com/yuta382/world-of-parts-alpha-review/main/docs/screenshots/12-machining-precision.png" alt="精密部品の加工画面"><figcaption><strong>精密部品</strong><span>指定点を覆い、過加工を避ける。</span></figcaption></figure>
+        <figure><img src="https://raw.githubusercontent.com/yuta382/world-of-parts-alpha-review/main/docs/screenshots/13-world-long-term.png" alt="5産業と最終段階工場がある長期世界"><figcaption><strong>長期世界</strong><span>5産業と最終工場段階が一つの地域に共存。</span></figcaption></figure>
+        <figure><img src="https://raw.githubusercontent.com/yuta382/world-of-parts-alpha-review/main/docs/screenshots/14-world-dashboard.png" alt="世界指標と5機械のbatch追跡"><figcaption><strong>世界の追跡</strong><span>水・食・物流・電力・環境・医療と5機械を確認。</span></figcaption></figure>
+        <figure><img src="https://raw.githubusercontent.com/yuta382/world-of-parts-alpha-review/main/docs/screenshots/15-factory-growth.png" alt="工場成長と設備配置"><figcaption><strong>工場成長</strong><span>設備所有と稼働枠、自動化、材料を判断する。</span></figcaption></figure>
       </div>
     </section>
 
@@ -71,91 +65,46 @@
       <article>
         <h2>実装済み</h2>
         <ul>
-          <li>スマートフォン縦画面向け3Dジオラマ</li>
-          <li>候補地の選択と最初の工場建設</li>
-          <li>ドラッグによるカメラ移動</li>
-          <li>ピンチ／ホイールによるズーム</li>
-          <li>建設後の次需要「回転軸」の表示</li>
-          <li>給水ポンプ用回転軸の受注表示</li>
-          <li>高速加工または精密加工を一つ選び、検査を必要なら追加</li>
-          <li>加工方法→任意検査の順序確認と加工直前の準備状態</li>
-          <li>名前空間付きIDによる部品・機械・産業・街のコンテンツ参照</li>
-          <li>バックアップと移行を持つversion付きオフラインセーブ</li>
+          <li>5部品それぞれの異なる一本指加工</li>
+          <li>品質・数量・納期・信頼性・省資源を組み合わせる需要</li>
+          <li>高速・精密・検査から結果までの因果</li>
+          <li>5機械・5産業・分岐する町へのbatch接続</li>
+          <li>5段階の工場、設備稼働枠、材料、投資、自動化</li>
+          <li>固定待ち時間に依存しない継続需要</li>
+          <li>save v2、自動／手動保存、2世代バックアップ、移行</li>
         </ul>
       </article>
       <article>
-        <h2>現在の進行</h2>
-        <ol class="flow">
-          <li class="done">世界を見る</li>
-          <li class="done">候補地を選ぶ</li>
-          <li class="done">工場を建てる</li>
-          <li class="done">回転軸の受注を見る</li>
-          <li class="current">工程を選び加工準備を整える</li>
-          <li>一本指で加工する</li>
-        </ol>
-      </article>
-      <article>
-        <h2>操作方法</h2>
-        <dl>
-          <dt>タップ／クリック</dt><dd>光る候補地を選ぶ</dd>
-          <dt>一本指／マウスドラッグ</dt><dd>ジオラマを移動する</dd>
-          <dt>ピンチ／ホイール</dt><dd>拡大・縮小する</dd>
-          <dt>建設ボタン</dt><dd>最初の工場を建てる</dd>
-          <dt>受注を見る</dt><dd>回転軸の用途と要求を確認する</dd>
-          <dt>工程カード</dt><dd>加工方法を一つ選び、検査を必要なら追加する</dd>
-        </dl>
-      </article>
-      <article>
-        <h2>未実装</h2>
+        <h2>未実装・未証明</h2>
         <ul>
-          <li>一本指加工、部品完成、ポンプ、世界変化</li>
-          <li>経済、オンライン機能</li>
-          <li>正式アート、音、正式なゲームループ</li>
+          <li>正式アート、音、振動</li>
+          <li>オンライン、広告、課金、分析</li>
+          <li>5部品・5産業を越える追加コンテンツ</li>
+          <li>実スマートフォン複数機種での長時間負荷</li>
+          <li>子ども5名・大人3名と累積24時間級の実プレイ証拠</li>
         </ul>
       </article>
     </section>
 
-    <section class="notes" aria-labelledby="notes-title">
-      <div class="section-heading">
-        <p class="step">02</p>
-        <h2 id="notes-title">今回の変更と既知の問題</h2>
-      </div>
+    <section class="notes" aria-labelledby="verification-title">
+      <div class="section-heading"><p class="step">03</p><h2 id="verification-title">検証</h2></div>
       <div class="notes-columns">
-        <div>
-          <h3>今回追加したもの</h3>
-          <p>累積24時間以上の循環、Game Director監査、Water Chainだけの安定ID、正常バックアップから復旧できるversion付きオフラインセーブを本番基盤へ追加しました。工程は高速加工か精密加工を一つ選び、検査を必要なら追加する役割分担に整理しています。</p>
-        </div>
-        <div>
-          <h3>既知の問題</h3>
-          <ul>
-            <li>初回起動ではGodot Webデータの読み込み時間が発生する。</li>
-            <li>現在は工程選択までで、一本指加工以降のゲームループは未実装。</li>
-            <li>レビュー画像は機能変更時に更新する必要がある。</li>
-            <li>Webブラウザでの保存・再読込は確認済み。長期保存、容量上限、保存不能時の実機確認は未完了。</li>
-          </ul>
-        </div>
+        <div><h3>自動検証</h3><ul><li>A/B/C受注fit</li><li>5部品の良／悪操作fixture</li><li>5機械の出力差とprovenance</li><li>300実サイクルと25サイクルごとのsave/reload</li><li>破損・未来schema・未知ID・移行</li></ul></div>
+        <div><h3>実画面検証</h3><ul><li>PCブラウザでカメラ移動・ズーム</li><li>390×844で全代表画面</li><li>工場画面の縦スクロール</li><li>一本指相当の加工から納品まで</li><li>JavaScript／Godot error 0</li></ul></div>
       </div>
     </section>
 
-    <section class="build-info" aria-labelledby="build-title">
-      <div>
-        <p class="step">03</p>
-        <h2 id="build-title">公開中のビルド</h2>
-      </div>
+    <section class="build-info" aria-label="ビルド情報">
+      <div><h2>Build</h2><p>Review Set<br><strong>alpha-rs-0004</strong></p></div>
       <dl>
-        <dt>Review Set</dt><dd><code>alpha-rs-0003-long-horizon-foundation</code></dd>
-        <dt>Guardian</dt><dd><strong>GREEN</strong> · 横展開せず、一本指加工からWater Chainを縦に実装する</dd>
-        <dt>ブランチ</dt><dd><code>agent/alpha-01-diorama-foundation</code></dd>
-        <dt>コミット</dt><dd><code>b8517f580425374f48234198eb8d16f2d18f02a7</code></dd>
-        <dt>最終更新</dt><dd><time datetime="2026-08-11T03:48:28Z">2026-08-11T03:48:28Z</time></dd>
-        <dt>エンジン</dt><dd>Godot 4.7.1 Standard / GDScript / Compatibility renderer</dd>
+        <dt>Branch</dt><dd><code>agent/alpha-01-diorama-foundation</code></dd>
+        <dt>Commit</dt><dd><code>ab448a259709933bd42a6992b7151dba51f25230</code></dd>
+        <dt>Built</dt><dd><code>2026-08-11T07:58:11Z</code></dd>
+        <dt>Engine</dt><dd>Godot 4.7.1 / GDScript / Compatibility renderer</dd>
       </dl>
     </section>
   </main>
 
-  <footer>
-    <p>開発確認専用ページです。検索インデックスの対象外にしています。</p>
-    <a href="https://world-of-parts-alpha.pages.dev/">Godot本体へ戻る</a>
-  </footer>
+  <footer><span>Development review only · noindex</span><a href="review.json">review.json</a></footer>
 </body>
 </html>
