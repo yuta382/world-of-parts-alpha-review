@@ -11,7 +11,7 @@
   <header class="hero">
     <p class="eyebrow">World of Parts · Production Alpha</p>
     <h1>開発レビュー</h1>
-    <p class="lead">「世界 → 工場 → 回転軸」の入口を作っている本番α版です。現在は、3D世界で最初の工場を建て、次に必要な部品が回転軸だと分かるところまで実装しています。</p>
+    <p class="lead">「世界 → 工場 → 回転軸」の入口を作っている本番α版です。現在は、最初の工場を建て、給水ポンプ用の回転軸を受注し、最大2工程を選んで加工へ進む直前まで実装しています。</p>
     <a class="play-link" href="https://world-of-parts-alpha.pages.dev/">Godot本体を開く</a>
   </header>
 
@@ -23,20 +23,20 @@
       </div>
       <div class="gallery">
         <figure>
-          <img src="https://raw.githubusercontent.com/yuta382/world-of-parts-alpha-review/main/docs/screenshots/world-initial.jpg" alt="明るい農業地域の3Dジオラマと、光る工場候補地">
-          <figcaption><strong>初期の3Dジオラマ</strong><span>給水設備が必要な地域と、光る候補地が見える。</span></figcaption>
+          <img src="https://raw.githubusercontent.com/yuta382/world-of-parts-alpha-review/main/docs/screenshots/world-initial.png" alt="青い水と緑の土地、農地、小さな町、光る工場候補地が見える3Dジオラマ">
+          <figcaption><strong>現在の世界全体</strong><span>水、農地、町、道路、候補地が一つの地域につながる。</span></figcaption>
         </figure>
         <figure>
-          <img src="https://raw.githubusercontent.com/yuta382/world-of-parts-alpha-review/main/docs/screenshots/build-site-selected.jpg" alt="工場候補地を選び、建設確認ボタンが表示された画面">
-          <figcaption><strong>候補地を選択</strong><span>場所の役割を確認して、建設を決められる。</span></figcaption>
+          <img src="https://raw.githubusercontent.com/yuta382/world-of-parts-alpha-review/main/docs/screenshots/factory-built.png" alt="選択した候補地に清潔感のある最初の工場が建った画面">
+          <figcaption><strong>工場建設後</strong><span>同じ3D世界に工場が建ち、回転軸の受注へつながる。</span></figcaption>
         </figure>
         <figure>
-          <img src="https://raw.githubusercontent.com/yuta382/world-of-parts-alpha-review/main/docs/screenshots/factory-built.jpg" alt="選択した候補地に最初の工場が建った画面">
-          <figcaption><strong>最初の工場を建設</strong><span>同じ3D世界の中で工場が形になる。</span></figcaption>
+          <img src="https://raw.githubusercontent.com/yuta382/world-of-parts-alpha-review/main/docs/screenshots/shaft-order.png" alt="給水ポンプ用回転軸の形、数量、表面、納期を視覚的に示す受注画面">
+          <figcaption><strong>回転軸の受注</strong><span>部品の用途と、数量・表面・納期を図形中心で確認する。</span></figcaption>
         </figure>
         <figure>
-          <img src="https://raw.githubusercontent.com/yuta382/world-of-parts-alpha-review/main/docs/screenshots/next-demand.jpg" alt="工場建設後に次は回転軸が必要だと表示された画面">
-          <figcaption><strong>次の需要</strong><span>世界から工場へ、次は回転軸の受注へつながる。</span></figcaption>
+          <img src="https://raw.githubusercontent.com/yuta382/world-of-parts-alpha-review/main/docs/screenshots/process-selection.png" alt="高速加工、精密加工、検査から精密加工と検査を選び、順番を確認する画面">
+          <figcaption><strong>工程選択</strong><span>役割の異なる3工程から最大2つを選び、順番を確認する。</span></figcaption>
         </figure>
       </div>
     </section>
@@ -50,6 +50,9 @@
           <li>ドラッグによるカメラ移動</li>
           <li>ピンチ／ホイールによるズーム</li>
           <li>建設後の次需要「回転軸」の表示</li>
+          <li>給水ポンプ用回転軸の受注表示</li>
+          <li>高速加工・精密加工・検査から最大2工程を選択</li>
+          <li>工程順の確認と加工直前の準備状態</li>
         </ul>
       </article>
       <article>
@@ -58,8 +61,9 @@
           <li class="done">世界を見る</li>
           <li class="done">候補地を選ぶ</li>
           <li class="done">工場を建てる</li>
-          <li class="current">回転軸の需要を知る</li>
-          <li>受注・工程選択へ</li>
+          <li class="done">回転軸の受注を見る</li>
+          <li class="current">工程を選び加工準備を整える</li>
+          <li>一本指で加工する</li>
         </ol>
       </article>
       <article>
@@ -69,13 +73,14 @@
           <dt>一本指／マウスドラッグ</dt><dd>ジオラマを移動する</dd>
           <dt>ピンチ／ホイール</dt><dd>拡大・縮小する</dd>
           <dt>建設ボタン</dt><dd>最初の工場を建てる</dd>
+          <dt>受注を見る</dt><dd>回転軸の用途と要求を確認する</dd>
+          <dt>工程カード</dt><dd>最大2工程を選び、選択順を確認する</dd>
         </dl>
       </article>
       <article>
         <h2>未実装</h2>
         <ul>
-          <li>回転軸の受注と工程選択</li>
-          <li>加工、部品完成、ポンプ、世界変化</li>
+          <li>一本指加工、部品完成、ポンプ、世界変化</li>
           <li>経済、保存、オンライン機能</li>
           <li>正式アート、音、正式なゲームループ</li>
         </ul>
@@ -90,13 +95,13 @@
       <div class="notes-columns">
         <div>
           <h3>今回追加したもの</h3>
-          <p>Godot本体を変更せず、現在の画面、機能、進行を外部から確認する静的レビュー入口を追加しました。</p>
+          <p>参考画像の明るい水・緑・町・工場のつながりをプリミティブで再構成し、工場建設後から回転軸の受注、工程選択、加工準備までをGodot本体へつなぎました。</p>
         </div>
         <div>
           <h3>既知の問題</h3>
           <ul>
             <li>初回起動ではGodot Webデータの読み込み時間が発生する。</li>
-            <li>現在は工場建設までで、継続するゲームループは未実装。</li>
+            <li>現在は工程選択までで、一本指加工以降のゲームループは未実装。</li>
             <li>レビュー画像は機能変更時に更新する必要がある。</li>
           </ul>
         </div>
@@ -110,8 +115,8 @@
       </div>
       <dl>
         <dt>ブランチ</dt><dd><code>agent/alpha-01-diorama-foundation</code></dd>
-        <dt>コミット</dt><dd><code>1dc1c8a7e8486c959b09d493b9f502bd4d8185f0</code></dd>
-        <dt>最終更新</dt><dd><time datetime="2026-08-10T23:52:19Z">2026-08-10T23:52:19Z</time></dd>
+        <dt>コミット</dt><dd><code>c2a00f1dff55205e4d6ab69cde76cda2daf62dc3</code></dd>
+        <dt>最終更新</dt><dd><time datetime="2026-08-11T00:48:58Z">2026-08-11T00:48:58Z</time></dd>
         <dt>エンジン</dt><dd>Godot 4.7.1 Standard / GDScript / Compatibility renderer</dd>
       </dl>
     </section>
