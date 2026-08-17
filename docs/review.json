@@ -20,8 +20,8 @@
   },
   "build": {
     "branch": "agent/alpha-01-diorama-foundation",
-    "commit_sha": "38126d257cc578e93a0f06554de57e98fc4a9f48",
-    "built_at_utc": "2026-08-17T00:56:55Z",
+    "commit_sha": "f967ac12e4081fc59f7bcf20a36feaf74c4d2f51",
+    "built_at_utc": "2026-08-17T01:00:01Z",
     "engine": "Godot 4.7.1 Standard / GDScript / Compatibility renderer",
     "target": "PC / mobile portrait / Web"
   },
