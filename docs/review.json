@@ -8,9 +8,9 @@
       "note": "Godot 4.7.1の自動検証、PCブラウザ、390×844ブラウザ、実Webビルドを確認済み"
     },
     "level_2": {
-      "status": "review_artifacts_confirmed_game_pending",
-      "label": "Review Set公開確認済み／ゲーム反映待ち",
-      "note": "GitHub Pages、raw review.json、代表画像は認証なしHTTP 200を確認済み。Godot本体のCloudflare最新版は本人再認証後の反映待ち"
+      "status": "confirmed",
+      "label": "公開確認済み",
+      "note": "Godot本体はCloudflare Pagesで認証なしHTTP 200を確認し、公開済みindex.pckのSHA-256が最新Webビルドと一致。GitHub Pages、raw review.json、代表画像も認証なしHTTP 200を確認済み"
     },
     "level_3": {
       "status": "needs_current_chatgpt_review",
@@ -20,8 +20,8 @@
   },
   "build": {
     "branch": "agent/alpha-01-diorama-foundation",
-    "commit_sha": "554bf51bc6e0e9e9f6e46b6ff01e4efe2b18b58a",
-    "built_at_utc": "2026-08-11T08:00:54Z",
+    "commit_sha": "38126d257cc578e93a0f06554de57e98fc4a9f48",
+    "built_at_utc": "2026-08-17T00:56:55Z",
     "engine": "Godot 4.7.1 Standard / GDScript / Compatibility renderer",
     "target": "PC / mobile portrait / Web"
   },
@@ -62,7 +62,7 @@
   ],
   "known_issues": [
     "Godot Web版は初回読み込みに端末と回線依存の待ち時間がある",
-    "Cloudflare上のGodot本体は本人再認証が必要なため、最新commitの再公開が未完了",
+    "Cloudflare Pagesの直接アップロードでは、静的Review SetはGitHub Pagesミラーを正本の公開確認経路として扱う",
     "完成ゲームGREENに必要な人間の24時間級継続証拠は未取得",
     "Level 3は現在のChatGPTによるreview.jsonと画像の実物確認が必要",
     "390×844のブラウザ確認は合格したが、複数の実スマートフォン機種での長時間発熱・電池・保存検証は未完了"
